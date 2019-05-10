@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-1443" y="108"/>
         </scene>
-        <!--View Controller-->
+        <!--Meme View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -38,14 +38,14 @@
                                 <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="y0i-nC-Z7s"/>
-                                    <barButtonItem systemItem="camera" id="vEV-i9-fUG">
+                                    <barButtonItem tag="1" systemItem="camera" id="vEV-i9-fUG">
                                         <connections>
-                                            <action selector="pickFromCamera:" destination="BYZ-38-t0r" id="AEi-vR-Khe"/>
+                                            <action selector="pickFromCamera:" destination="BYZ-38-t0r" id="rr3-PD-bTX"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem title="Album" id="Lmk-qD-Z3P">
                                         <connections>
-                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="FIH-vc-Ax1"/>
+                                            <action selector="pickAnImage:" destination="BYZ-38-t0r" id="zWh-xL-AR5"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="tFE-yP-oaS"/>
@@ -65,7 +65,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yee-cj-DSQ" userLabel="Bottom Text Field">
-                                <rect key="frame" x="16" y="569" width="343" height="30"/>
+                                <rect key="frame" x="16" y="592" width="343" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -84,7 +84,7 @@
                             <constraint firstItem="FWz-lO-xRD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="24" id="X7Y-pl-SDC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cVl-sI-U3s" secondAttribute="trailing" id="aeS-lx-flx"/>
                             <constraint firstItem="cVl-sI-U3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="h7t-ca-yh3"/>
-                            <constraint firstItem="w1v-5f-go8" firstAttribute="top" secondItem="Yee-cj-DSQ" secondAttribute="bottom" constant="24" id="s9v-sN-hHc"/>
+                            <constraint firstItem="w1v-5f-go8" firstAttribute="top" secondItem="Yee-cj-DSQ" secondAttribute="bottom" constant="1" id="s9v-sN-hHc"/>
                             <constraint firstItem="w1v-5f-go8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="sAB-RS-yl6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FWz-lO-xRD" secondAttribute="trailing" constant="16" id="skh-pa-KeY"/>
                             <constraint firstItem="Yee-cj-DSQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="u9X-Zb-IYh"/>
