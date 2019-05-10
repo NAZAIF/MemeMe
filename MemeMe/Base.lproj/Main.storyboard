@@ -99,7 +99,11 @@
                                 <action selector="Share:" destination="BYZ-38-t0r" id="wJ2-Cg-5Tr"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="eO0-ZF-HQJ"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="eO0-ZF-HQJ">
+                            <connections>
+                                <action selector="cancelAction:" destination="BYZ-38-t0r" id="nbk-uJ-QwL"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>

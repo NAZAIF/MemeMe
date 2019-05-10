@@ -27,10 +27,7 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         topTextField.defaultTextAttributes = memeTextAttributedString
         bottomTextField.defaultTextAttributes = memeTextAttributedString
-        if imagePickerView.image == nil {
-            shareButton.isEnabled = false
-        }
-        
+        shareButton.isEnabled = imagePickerView.image != nil
         topTextField.textAlignment = NSTextAlignment.center
         bottomTextField.textAlignment = .center
         
@@ -85,6 +82,11 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         return true
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.text = (textField.text! as NSString).replacingCharacters(in: range, with: string.uppercased())
+
+        return false
+    }
     @objc func keyboardWillShow(_ notification:Notification){
         view.frame.origin.y = -getKeyboardHeight(notification)
     }
@@ -149,5 +151,13 @@ class ViewController: UIViewController,UIImagePickerControllerDelegate,UINavigat
         self.save()
         }
     }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        imagePickerView.image = nil
+        topTextField.text = "TOP"
+        bottomTextField.text = "BOTTOM"
+        shareButton.isEnabled = false
+    }
+    
 }
 
