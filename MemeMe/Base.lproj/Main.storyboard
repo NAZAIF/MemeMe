@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fer-0O-S5r">
-    <device id="retina6_5" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,27 +15,111 @@
             <objects>
                 <navigationController id="fer-0O-S5r" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="o2s-hH-bwT">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="FMv-Gt-S0i"/>
+                        <segue destination="9fn-rK-OAL" kind="relationship" relationship="rootViewController" id="iLc-Ia-Jw6"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypo-8R-kSP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1443" y="108"/>
+            <point key="canvasLocation" x="-2500" y="-96"/>
+        </scene>
+        <!--Collection-->
+        <scene sceneID="TtH-Sc-ub3">
+            <objects>
+                <viewController storyboardIdentifier="SentMemesCollectionVC" id="YRM-6O-7tJ" customClass="SentMemesCollectionVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vK9-LO-0e9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="82u-cY-OlM"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Collection" image="collection" id="uYM-ah-XaE"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uLi-4c-J39" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-724" y="237"/>
+        </scene>
+        <!--Table-->
+        <scene sceneID="S68-EQ-2qc">
+            <objects>
+                <viewController storyboardIdentifier="SentMemesTableVC" id="tkf-7N-rnd" customClass="SentMemesTableVC" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="XiH-wF-CkB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="smk-eZ-heG">
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MemeCell" textLabel="5HM-uK-pII" style="IBUITableViewCellStyleDefault" id="kRc-ni-GWf">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kRc-ni-GWf" id="9gI-wT-0wI">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5HM-uK-pII">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CO8-wo-b9J" firstAttribute="trailing" secondItem="smk-eZ-heG" secondAttribute="trailing" id="0TW-Py-lKF"/>
+                            <constraint firstItem="smk-eZ-heG" firstAttribute="leading" secondItem="CO8-wo-b9J" secondAttribute="leading" id="M6f-S9-h4v"/>
+                            <constraint firstItem="CO8-wo-b9J" firstAttribute="bottom" secondItem="smk-eZ-heG" secondAttribute="bottom" id="WYN-MW-TGZ"/>
+                            <constraint firstItem="smk-eZ-heG" firstAttribute="top" secondItem="CO8-wo-b9J" secondAttribute="top" id="zXP-BS-v5E"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CO8-wo-b9J"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Table" image="table" id="5hZ-tf-ufI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Wd-pT-Xvn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-724" y="-427"/>
+        </scene>
+        <!--Sent Memes-->
+        <scene sceneID="80n-cc-k9w">
+            <objects>
+                <tabBarController id="9fn-rK-OAL" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Sent Memes" id="yvp-hR-abq">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qhC-Uc-URB"/>
+                    </navigationItem>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a32-rN-NtF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tkf-7N-rnd" kind="relationship" relationship="viewControllers" id="K5w-pO-QPu"/>
+                        <segue destination="YRM-6O-7tJ" kind="relationship" relationship="viewControllers" id="dxy-ba-J2v"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EJc-lE-8SC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1675" y="-95"/>
         </scene>
         <!--Meme View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MemeViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w1v-5f-go8">
-                                <rect key="frame" x="0.0" y="818" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="692" width="414" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="TUt-cJ-BJn"/>
                                 </constraints>
@@ -55,10 +139,10 @@
                                 </items>
                             </toolbar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cVl-sI-U3s">
-                                <rect key="frame" x="0.0" y="88" width="414" height="730"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="628"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FWz-lO-xRD" userLabel="Top Text Field">
-                                <rect key="frame" x="16" y="112" width="382" height="30"/>
+                                <rect key="frame" x="16" y="88" width="382" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -68,7 +152,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yee-cj-DSQ" userLabel="Bottom Text Field">
-                                <rect key="frame" x="16" y="787" width="382" height="30"/>
+                                <rect key="frame" x="16" y="661" width="382" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -119,7 +203,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-607" y="108"/>
+            <point key="canvasLocation" x="-22" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="collection" width="29.666666030883789" height="30"/>
+        <image name="table" width="30" height="30"/>
+    </resources>
 </document>

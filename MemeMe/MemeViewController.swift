@@ -28,6 +28,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        shareButton.isEnabled = imagePickerView.image != nil
         subscribeToKeyboardNotifications()
     }
     
@@ -39,6 +40,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
+        shareButton.isEnabled = imagePickerView.image != nil
         unsubscribeToKeyboardNotification()
     }
     @IBAction func pickAnImage(_ sender: Any) {
@@ -144,11 +146,15 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     }
     
     func save() {
-        _ = Meme(
-            topText:self.topTextField.text!,
-            bottomText: self.bottomTextField.text!,
-            originalImage: self.imagePickerView.image!,
+        let meme = Meme(
+            topText: topTextField.text!,
+            bottomText: bottomTextField.text!,
+            originalImage: imagePickerView.image!,
             memedImage: generateMemedImage())
+        
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(meme)
     }
     
     @IBAction func Share(_ sender: Any) {
