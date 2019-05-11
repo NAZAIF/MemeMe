@@ -18,23 +18,23 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        
+        setupTextFields(topTextField)
+        setupTextFields(bottomTextField)
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
-
-        setupTextFields(topTextField)
-        setupTextFields(bottomTextField)
-        
         subscribeToKeyboardNotifications()
     }
     
     func setupTextFields(_ textField: UITextField) {
         textField.defaultTextAttributes = memeTextAttributedString
         textField.textAlignment = .center
+        textField.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,7 +97,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         textField.text = (textField.text! as NSString).replacingCharacters(in: range, with: string.uppercased())
-
+        
         return false
     }
     
@@ -144,7 +144,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     }
     
     func save() {
-        _ = Memes.Meme(
+        _ = Meme(
             topText:self.topTextField.text!,
             bottomText: self.bottomTextField.text!,
             originalImage: self.imagePickerView.image!,
@@ -157,7 +157,9 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         self.present(activityController, animated: true, completion: nil)
         
         activityController.completionWithItemsHandler = { (activity, success, items, error) in
-        self.save()
+            if success {
+                self.save()
+            }
         }
     }
     
