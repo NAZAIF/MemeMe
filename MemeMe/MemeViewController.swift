@@ -165,6 +165,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         activityController.completionWithItemsHandler = { (activity, success, items, error) in
             if success {
                 self.save()
+                self.navigationController?.popViewController(animated: true)
             }
         }
     }
@@ -174,6 +175,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         topTextField.text = "TOP"
         bottomTextField.text = "BOTTOM"
         shareButton.isEnabled = false
+        navigationController?.popViewController(animated: true)
     }
     
 }

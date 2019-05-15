@@ -10,6 +10,8 @@ import UIKit
 
 class SentMemesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var tableView: UITableView!
+    
     var memes: [Meme]! {
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -22,7 +24,14 @@ class SentMemesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        memes.count == 0 ? showEmptyView(true) : showEmptyView(false)
         return memes.count
     }
     
@@ -35,7 +44,24 @@ class SentMemesTableVC: UIViewController,UITableViewDelegate,UITableViewDataSour
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailCotroller = storyboard?.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        detailCotroller.meme = memes[(indexPath as NSIndexPath).row]
+        navigationController?.pushViewController(detailCotroller, animated: true)
+    }
+    
+    func showEmptyView(_ show: Bool) {
+        if show {
+            let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: tableView.frame.height))
+            label.numberOfLines = 2
+            label.textAlignment = .center
+            label.text = "No Memes Stored!\nClick '+' to create a new Meme."
+            tableView.backgroundView = nil
+            tableView.backgroundView = label
+        } else {
+            tableView.backgroundView = nil
+        }
+    }
     
     
    
