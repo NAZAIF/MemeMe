@@ -233,7 +233,7 @@
                     <navigationItem key="navigationItem" id="eKs-gJ-g56">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="Ch8-0s-Nee">
                             <connections>
-                                <action selector="Share:" destination="BYZ-38-t0r" id="wJ2-Cg-5Tr"/>
+                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="eVM-jA-M6c"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="eO0-ZF-HQJ">

@@ -16,6 +16,13 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
     @IBOutlet weak var bottomTextField: UITextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     
+    let memeTextAttributedString : [NSAttributedString.Key : Any] = [
+        NSAttributedString.Key.strokeColor: UIColor.black,
+        NSAttributedString.Key.foregroundColor: UIColor.white,
+        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+        NSAttributedString.Key.strokeWidth: -5
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
@@ -72,12 +79,6 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         picker.dismiss(animated: true, completion: nil)
     }
     
-    let memeTextAttributedString : [NSAttributedString.Key : Any] = [
-        NSAttributedString.Key.strokeColor: UIColor.black,
-        NSAttributedString.Key.foregroundColor: UIColor.white,
-        NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-        NSAttributedString.Key.strokeWidth: -5
-    ]
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField.text == "TOP" || textField.text == "BOTTOM" {
@@ -157,7 +158,7 @@ class MemeViewController: UIViewController,UIImagePickerControllerDelegate,UINav
         appDelegate.memes.append(meme)
     }
     
-    @IBAction func Share(_ sender: Any) {
+    @IBAction func shareMeme(_ sender: Any) {
         let sharedImage = generateMemedImage()
         let activityController = UIActivityViewController(activityItems:    [sharedImage], applicationActivities: nil)
         self.present(activityController, animated: true, completion: nil)
